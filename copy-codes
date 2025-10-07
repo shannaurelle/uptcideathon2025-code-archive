@@ -1,0 +1,9 @@
+#!/bin/rc
+# Author: Shann Aurelle G. Ripalda
+# Date of Last Revision: October 7, 2025
+# Description: rc script for copying C source codes to destination
+# Usage: copy-codes my/destination/folder
+rfork e
+if(! test -e $1)
+	mkdir $1
+@{tar -c *.c} | @{ cd $1; tar x }
